@@ -51,7 +51,14 @@ print(formattedDateFromTemplate)
 //Backend
 let dateFormatterBackend = DateFormatter()
 dateFormatterBackend.locale = Locale(identifier: "en_US_POSIX")
-dateFormatterBackend.dateFormat = "yyyy-MM-dd'T'hh:mm:ssZ"
+dateFormatterBackend.timeZone = TimeZone(identifier: "UTC")
+dateFormatterBackend.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 let formattedDateForBackend = dateFormatterBackend.string(from: date)
 
 print(formattedDateForBackend)
+
+//ISO 8601
+let dateFormatterISO8601 = ISO8601DateFormatter()
+let formattedDateToISO8601 = dateFormatterISO8601.string(from: date)
+
+print(formattedDateToISO8601)
