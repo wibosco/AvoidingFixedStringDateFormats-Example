@@ -6,7 +6,7 @@ let date = Date(timeIntervalSince1970: timestamp)
 //Fixed string using UK locale
 let dateFormatterUK = DateFormatter()
 dateFormatterUK.locale = Locale(identifier: "en_GB")
-dateFormatterUK.dateFormat = "yyyy-MM-dd hh:mm:ss"
+dateFormatterUK.dateFormat = "yyyy-MM-dd hh:mm:ss a"
 let formattedDate = dateFormatterUK.string(from: date)
 
 print(formattedDate)
@@ -15,21 +15,21 @@ print(formattedDate)
 
 //Fixed string using current locale
 let dateFormatterWithFixedString = DateFormatter()
-dateFormatterWithFixedString.dateFormat = "MM/dd/yy hh:mm:ss"
+dateFormatterWithFixedString.dateFormat = "M/d/yy h:m:s a"
 let formattedDateFromFixedString = dateFormatterWithFixedString.string(from: date)
 
 print(formattedDateFromFixedString)
 
 //Enums property
 let dateFormatterFromEnumProperty = DateFormatter()
-dateFormatterFromEnumProperty.dateStyle = .medium
-dateFormatterFromEnumProperty.timeStyle = .short
+dateFormatterFromEnumProperty.dateStyle = .full
+dateFormatterFromEnumProperty.timeStyle = .medium
 let formattedDateFromEnumProperty = dateFormatterFromEnumProperty.string(from: date)
 
 print(formattedDateFromEnumProperty)
 
 //Enums class
-let formattedDateFromEnum = DateFormatter.localizedString(from: date, dateStyle: .short, timeStyle: .medium)
+let formattedDateFromEnum = DateFormatter.localizedString(from: date, dateStyle: .full, timeStyle: .medium)
 
 print(formattedDateFromEnum)
 
